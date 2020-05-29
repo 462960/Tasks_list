@@ -8,6 +8,7 @@
 
 .items-wrapper {
   margin-top: 15px;
+  // pointer-events: none;
 }
 
 li {
@@ -20,14 +21,12 @@ li {
   padding: 0;
 
   & > li:first-child {
-    flex: 4 4;
+    flex: 6 6;
+    padding: 0 20px;
   }
   & > li:last-child {
     flex: 1 1;
     cursor: pointer;
-    // & * {
-    //   pointer-events: none;
-    // }
   }
 }
 
@@ -35,19 +34,26 @@ li {
   display: flex;
   margin: 0;
   padding: 0;
-  & > li {
-    flex: 2 2;
-    padding: 3px;
+  li {
+    flex: 6 6;
+    // padding: 15px 3px;
+
+    text-align: center;
+  }
+  li:first-child {
+    flex: 1 1;
+    cursor: pointer;
+  }
+  li:last-child {
+    flex: 1 1;
+    cursor: pointer;
+    padding-top: 8px;
     & * {
       pointer-events: none;
     }
   }
-  & > li:first-child {
-    flex: 4 4;
-    cursor: pointer;
-  }
-  & > li:last-child {
-    flex: 1 1;
-    cursor: pointer;
-  }
+}
+
+.checked {
+  text-decoration: line-through;
 }

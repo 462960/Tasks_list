@@ -2,24 +2,29 @@ import React, { useState, useEffect } from "react";
 
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import Input from "@material-ui/core/Input";
 
-const InputModule = () => {
+const InputModule = ({ addTodo }) => {
+  const [name, setName] = useState("");
+
   const handleInput = (e) => {
-    console.log(`Input: ${e.target.value}`);
+    const text = e.target.value;
+    setName(text.trim());
   };
+
   const handleSubmit = () => {
-    console.log(`ADD`);
+    name && addTodo(name);
+    setName("");
   };
 
   return (
     <Paper>
       <ul className="inputs">
         <li>
-          <TextField onChange={handleInput} />
+          <Input onChange={handleInput} value={name} fullWidth={true} />
         </li>
         <li>
-          <Button onClick={handleSubmit}>ADD</Button>
+          <Button onClick={handleSubmit}>Add</Button>
         </li>
       </ul>
     </Paper>
