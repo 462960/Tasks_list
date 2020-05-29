@@ -1,3 +1,4 @@
+// Main centered block container
 .inputs-items-container {
   width: 600px;
   margin: 20px auto;
@@ -6,15 +7,16 @@
   }
 }
 
+// List's of tasks wrapper
 .items-wrapper {
   margin-top: 15px;
-  // pointer-events: none;
 }
 
 li {
   list-style: none;
 }
 
+// Block of inputs
 .inputs {
   display: flex;
   margin: 0;
@@ -29,15 +31,13 @@ li {
     cursor: pointer;
   }
 }
-
+// Block of items
 .item {
   display: flex;
   margin: 0;
   padding: 0;
   li {
     flex: 6 6;
-    // padding: 15px 3px;
-
     text-align: center;
   }
   li:first-child {
@@ -52,8 +52,4 @@ li {
       pointer-events: none;
     }
   }
-}
-
-.checked {
-  text-decoration: line-through;
 }
