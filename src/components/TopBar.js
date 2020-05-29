@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TopBar = () => {
+const TopBar = ({ todos }) => {
   const classes = useStyles();
 
   return (
@@ -34,7 +34,7 @@ const TopBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            To do list
+            To do list of {todos.length}
           </Typography>
         </Toolbar>
       </AppBar>

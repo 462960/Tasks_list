@@ -1,0 +1,19 @@
+import { v4 } from "uuid";
+
+import { ADD_TODO, REMOVE_TODO } from "./constants";
+
+export function addTodo(name) {
+  return {
+    type: ADD_TODO,
+    id: v4(),
+    name,
+  };
+}
+
+export function removeTodo(todos, i) {
+  return {
+    type: REMOVE_TODO,
+    todos,
+    i,
+  };
+}
