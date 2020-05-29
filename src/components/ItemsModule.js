@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import cn from "classnames";
+import React from "react";
 
 import { Paper } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -17,15 +16,10 @@ const ItemsModule = ({ removeTodo, todos }) => {
       <Paper>
         {todos.map((x) => (
           <ul key={x.id} className="item">
-            <li data="checkbox">
-              <Checkbox checked={x.done} color="primary" />
+            <li>
+              <Checkbox color="primary" onClick={(e) => e.stopPropagation()} />
             </li>
-            <li
-              className={cn({ checked: x.done })}
-              style={{ padding: "10px 0" }}
-            >
-              {x.name}
-            </li>
+            <li style={{ padding: "10px 0" }}>{x.name}</li>
             <li id={x.id}>
               <DeleteIcon />
             </li>

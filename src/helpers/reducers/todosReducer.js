@@ -1,9 +1,6 @@
-import { ADD_TODO, REMOVE_TODO, CHECKED } from "../action/constants";
+import { ADD_TODO, REMOVE_TODO } from "../action/constants";
 
-export function todosReducer(
-  state = [{ id: "5", name: "Bolt", done: false }],
-  action
-) {
+export function todosReducer(state = [], action) {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -11,11 +8,11 @@ export function todosReducer(
         {
           id: action.id,
           name: action.name,
-          done: action.done,
         },
       ];
     case REMOVE_TODO:
       return [...state.slice(0, action.i), ...state.slice(action.i + 1)];
+
     default:
       return state;
   }
