@@ -5,10 +5,10 @@ import { Paper } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Checkbox from "@material-ui/core/Checkbox";
 
-const ItemsModule = ({ removeTodo, todos, toggleCheck }) => {
+const ItemsModule = ({ removeTodo, filteredList, toggleCheck }) => {
   const deleteHandler = (e) => {
     const itemID = e.target.id;
-    const i = todos.findIndex((x) => x.id === itemID);
+    const i = filteredList.findIndex((x) => x.id === itemID);
     removeTodo(i);
   };
 
@@ -21,7 +21,7 @@ const ItemsModule = ({ removeTodo, todos, toggleCheck }) => {
   return (
     <div className="items-wrapper" onClick={deleteHandler}>
       <Paper>
-        {todos.map((x) => (
+        {filteredList.map((x) => (
           <ul key={x.id} className="item">
             <li>
               <Checkbox

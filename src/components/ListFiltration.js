@@ -20,21 +20,29 @@ const ListFiltration = ({ filterValue, setFilterValue }) => {
             value={filterValue}
             onChange={handleChange}
           >
-            <FormControlLabel
-              value="all"
-              control={<Radio color="primary" />}
-              label="All"
-            />
-            <FormControlLabel
-              value="checked"
-              control={<Radio color="primary" />}
-              label="Checked"
-            />
-            <FormControlLabel
-              value="todo"
-              control={<Radio color="primary" />}
-              label="To do"
-            />
+            <ul className="radio-controls">
+              <li>
+                <FormControlLabel
+                  value="all"
+                  control={<Radio color="primary" />}
+                  label="All"
+                />
+              </li>
+              <li>
+                <FormControlLabel
+                  value="checked"
+                  control={<Radio color="primary" />}
+                  label="Checked"
+                />
+              </li>
+              <li>
+                <FormControlLabel
+                  value="todo"
+                  control={<Radio color="primary" />}
+                  label="To do"
+                />
+              </li>
+            </ul>
           </RadioGroup>
         </FormControl>
       </Paper>

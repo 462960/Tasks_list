@@ -27,16 +27,16 @@ const InputsAndItems = ({ addTodo, removeTodo, todos, toggleCheck }) => {
       <Paper>
         <div className="inputs-items-inner-wrapper">
           <InputModule addTodo={addTodo} />
-          {/* {todos.length !== 0 ? ( */}
-          <ListFiltration
-            setFilterValue={setFilterValue}
-            filterValue={filterValue}
-          />
-          {/* ) : null} */}
+          {todos.length !== 0 ? (
+            <ListFiltration
+              setFilterValue={setFilterValue}
+              filterValue={filterValue}
+            />
+          ) : null}
 
           <ItemsModule
             removeTodo={removeTodo}
-            todos={filteredList}
+            filteredList={filteredList}
             toggleCheck={toggleCheck}
           />
         </div>
