@@ -3,34 +3,38 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 import { Paper } from "@material-ui/core";
 
-const ListFiltration = () => {
-  const [value, setValue] = React.useState("female");
-
+const ListFiltration = ({ filterValue, setFilterValue }) => {
   const handleChange = (e) => {
-    setValue(e.target.value);
+    setFilterValue(e.target.value);
   };
 
   return (
     <div className="items-wrapper">
       <Paper>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Gender</FormLabel>
           <RadioGroup
             aria-label="gender"
             name="gender1"
-            value={value}
+            value={filterValue}
             onChange={handleChange}
           >
             <FormControlLabel
-              value="female"
-              control={<Radio />}
-              label="Female"
+              value="all"
+              control={<Radio color="primary" />}
+              label="All"
             />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-            <FormControlLabel value="other" control={<Radio />} label="Other" />
+            <FormControlLabel
+              value="checked"
+              control={<Radio color="primary" />}
+              label="Checked"
+            />
+            <FormControlLabel
+              value="todo"
+              control={<Radio color="primary" />}
+              label="To do"
+            />
           </RadioGroup>
         </FormControl>
       </Paper>
