@@ -53,3 +53,7 @@ li {
     }
   }
 }
+// In case of item checked, add class
+.checked {
+  text-decoration: line-through;
+}
