@@ -5,6 +5,8 @@ import { Paper } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Checkbox from "@material-ui/core/Checkbox";
 
+import ListFiltration from "./ListFiltration";
+
 const ItemsModule = ({ removeTodo, todos, toggleCheck }) => {
   const deleteHandler = (e) => {
     const itemID = e.target.id;
@@ -21,6 +23,7 @@ const ItemsModule = ({ removeTodo, todos, toggleCheck }) => {
   return (
     <div className="items-wrapper" onClick={deleteHandler}>
       <Paper>
+        <ListFiltration />
         {todos.map((x) => (
           <ul key={x.id} className="item">
             <li>
