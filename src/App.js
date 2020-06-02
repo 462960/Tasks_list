@@ -4,11 +4,11 @@ import "./App.scss";
 import TopBar from "./components/TopBar";
 import InputsAndItems from "./components/InputsAndItems";
 
-function App(props) {
+function App() {
   return (
     <div>
-      <TopBar todos={props.todos} />
-      <InputsAndItems {...props} />
+      <TopBar />
+      <InputsAndItems />
     </div>
   );
 }
