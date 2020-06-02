@@ -1,21 +1,26 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { removeTodo, toggleCheck } from "../helpers/action/actionCreators";
+
 import cn from "classnames";
 
 import { Paper } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Checkbox from "@material-ui/core/Checkbox";
 
-const ItemsModule = ({ removeTodo, filteredList, toggleCheck }) => {
+const ItemsModule = ({ filteredList }) => {
+  const dispatch = useDispatch();
+
   const deleteHandler = (e) => {
     const itemID = e.target.id;
     const i = filteredList.findIndex((x) => x.id === itemID);
-    removeTodo(i);
+    dispatch(removeTodo(i));
   };
 
   const handleCheck = (e) => {
     e.stopPropagation();
     const id = e.target.id;
-    toggleCheck(id);
+    dispatch(toggleCheck(id));
   };
 
   return (

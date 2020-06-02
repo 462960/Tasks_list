@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../helpers/action/actionCreators";
 
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Input from "@material-ui/core/Input";
 
-const InputModule = ({ addTodo }) => {
+const InputModule = () => {
   const [name, setName] = useState("");
+  const dispatch = useDispatch();
 
   const handleInput = (e) => {
     const text = e.target.value;
@@ -13,7 +16,7 @@ const InputModule = ({ addTodo }) => {
   };
 
   const handleSubmit = () => {
-    name && addTodo(name);
+    name && dispatch(addTodo(name));
     setName("");
   };
 

@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -16,8 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TopBar = ({ todos }) => {
+const TopBar = () => {
   const classes = useStyles();
+  const todos = useSelector((state) => state.todosReducer);
 
   return (
     <div className={classes.root}>

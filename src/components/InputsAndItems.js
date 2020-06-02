@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import Paper from "@material-ui/core/Paper";
 
@@ -6,7 +7,8 @@ import InputModule from "./InputModule";
 import ItemsModule from "./ItemsModule";
 import ListFiltration from "./ListFiltration";
 
-const InputsAndItems = ({ addTodo, removeTodo, todos, toggleCheck }) => {
+const InputsAndItems = () => {
+  const todos = useSelector((state) => state.todosReducer);
   const [filterValue, setFilterValue] = useState("all");
   const [filteredList, setFilteredList] = useState(todos);
 
@@ -26,7 +28,7 @@ const InputsAndItems = ({ addTodo, removeTodo, todos, toggleCheck }) => {
     <div className="inputs-items-container">
       <Paper>
         <div className="inputs-items-inner-wrapper">
-          <InputModule addTodo={addTodo} />
+          <InputModule />
           {todos.length !== 0 ? (
             <ListFiltration
               setFilterValue={setFilterValue}
@@ -34,11 +36,7 @@ const InputsAndItems = ({ addTodo, removeTodo, todos, toggleCheck }) => {
             />
           ) : null}
 
-          <ItemsModule
-            removeTodo={removeTodo}
-            filteredList={filteredList}
-            toggleCheck={toggleCheck}
-          />
+          <ItemsModule filteredList={filteredList} />
         </div>
       </Paper>
     </div>
