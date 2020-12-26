@@ -17,26 +17,26 @@ const INITIAL_STATE = []
 
 
 // ----------- Reducer functions ---------
-const addOneMoreTask = (state, action) => (
+const addOneMoreTask = (state, { name }) => (
   [
     ...state,
     {
       id: v4(),
-      name: action.name,
+      name,
       checked: false
     }
   ]
 );
 
-const deleteTask = (state, action) => (
+const deleteTask = (state, { i }) => (
   [
-    ...state.slice(0, action.i),
-    ...state.slice(action.i + 1)
+    ...state.slice(0, i),
+    ...state.slice(i + 1)
   ]
 );
 
-const toggleTask = (state, action) => {
-  state.map(item => item.id === action.id && (item.checked = !item.checked));
+const toggleTask = (state, { id }) => {
+  state.map(item => item.id === id && (item.checked = !item.checked));
   return [...state]
 }
 
