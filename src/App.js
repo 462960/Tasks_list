@@ -7,7 +7,7 @@ import InputsAndItems from "./components/InputsAndItems";
 function App(props) {
   return (
     <div>
-      <TopBar todos={props.todos} />
+      <TopBar />
       <InputsAndItems {...props} />
     </div>
   );

@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
+//Users/vladimirmaxymenko/Documents/Projects/Tasks_list/src/components/InputsAndItems.js
+//Users/vladimirmaxymenko/Documents/Projects/Tasks_list/src/helpers/store/tasks/tasksReducer.js
 import Paper from "@material-ui/core/Paper";
 
 import InputModule from "./InputModule";
 import ItemsModule from "./ItemsModule";
 import ListFiltration from "./ListFiltration";
 
-const InputsAndItems = ({ addTodo, removeTodo, todos, toggleCheck }) => {
+const InputsAndItems = ({ addTodo, removeTodo, toggleCheck }) => {
+  const todos = useSelector(state => state.tasksReducer.listOfTasks)
   const [filterValue, setFilterValue] = useState("all");
   const [filteredList, setFilteredList] = useState(todos);
 
@@ -34,11 +38,11 @@ const InputsAndItems = ({ addTodo, removeTodo, todos, toggleCheck }) => {
             />
           ) : null}
 
-          <ItemsModule
+          {/* <ItemsModule
             removeTodo={removeTodo}
             filteredList={filteredList}
             toggleCheck={toggleCheck}
-          />
+          /> */}
         </div>
       </Paper>
     </div>
