@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 const TopBar = () => {
   const classes = useStyles();
-  const todos = useSelector(state => state.tasksReducer.listOfTasks)
+  const todos = useSelector(state => state.tasksReducer)
 
   return (
     <div className={classes.root}>

@@ -8,7 +8,7 @@ function App(props) {
   return (
     <div>
       <TopBar />
-      <InputsAndItems {...props} />
+      <InputsAndItems />
     </div>
   );
 }

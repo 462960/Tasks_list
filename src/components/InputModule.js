@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Actions } from "../helpers/store/tasks/tasksReducer"
 
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Input from '@material-ui/core/Input';
 
-const InputModule = ({ addTodo }) => {
+const InputModule = () => {
   const [name, setName] = useState("");
   const dispatch = useDispatch();
 
@@ -18,7 +18,6 @@ const InputModule = ({ addTodo }) => {
 
   const handleSubmit = () => {
     name && dispatch(Actions.addTask(name));
-    // name && addTodo(name);
     setName("");
   };
 
